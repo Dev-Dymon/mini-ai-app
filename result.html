@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuralPrompt — Response</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- PWA manifest — RELATIVE path works on any GitHub Pages subdirectory -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+</head>
+
+<body class="result-page">
+
+  <!-- Ambient background orbs -->
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+
+  <!-- Noise overlay -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <main class="d-flex align-items-center justify-content-center min-vh-100 px-3 py-5">
+    <div class="result-wrapper w-100">
+
+      <!-- Brand nav -->
+      <nav class="brand-row mb-5 d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+          <span class="brand-dot"></span>
+          <span class="brand-name">NeuralPrompt</span>
+          <span class="brand-badge">AI</span>
+        </div>
+        <a href="index.html" class="back-link" aria-label="Ask another question">
+          ← New prompt
+        </a>
+      </nav>
+
+      <!-- Prompt echo card -->
+      <div class="glass-card prompt-echo mb-4 reveal-card" style="animation-delay:0.05s">
+        <div class="section-label mb-2">Your prompt</div>
+        <p id="displayPrompt" class="prompt-text mono"></p>
+      </div>
+
+      <!-- Response card -->
+      <div class="glass-card response-card reveal-card" style="animation-delay:0.2s">
+        <div class="response-header mb-3">
+          <div class="section-label">AI Response</div>
+          <div class="model-badge mono">Llama-3.1-8B</div>
+        </div>
+        <div id="displayResponse" class="response-text"></div>
+
+        <!-- Copy button -->
+        <div class="mt-4 d-flex justify-content-end">
+          <button id="copyBtn" class="copy-btn" type="button" aria-label="Copy response to clipboard">
+            <span class="copy-icon">⧉</span> Copy
+          </button>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-5 reveal-card" style="animation-delay:0.35s">
+        <a href="index.html" class="submit-btn d-inline-flex align-items-center gap-3 text-decoration-none">
+          <span class="btn-label">Ask another question</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- App JS -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>
