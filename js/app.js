@@ -210,6 +210,9 @@
     var submitBtn   = document.getElementById("submitBtn");
     var charCount   = document.getElementById("charCount");
     var errorMsg    = document.getElementById("errorMsg");
+    var installPrompt = document.getElementById("installPrompt");
+    var installBtn = document.getElementById("installBtn");
+    var deferredInstallPrompt = null;
 
     if (!promptInput || !submitBtn) return;
 
@@ -227,6 +230,35 @@
     submitBtn.addEventListener("click", handleSubmit);
     promptInput.addEventListener("keydown", function (e) {
       if ((e.ctrlKey || e.metaKey) && e.key === "Enter") handleSubmit();
+    });
+
+    if (window.matchMedia) {
+      window.addEventListener("beforeinstallprompt", function (e) {
+        e.preventDefault();
+        deferredInstallPrompt = e;
+        if (installPrompt) {
+          installPrompt.classList.remove("d-none");
+        }
+      });
+    }
+
+    if (installBtn) {
+      installBtn.addEventListener("click", async function () {
+        if (!deferredInstallPrompt) return;
+        deferredInstallPrompt.prompt();
+        var choiceResult = await deferredInstallPrompt.userChoice;
+        deferredInstallPrompt = null;
+        if (installPrompt) {
+          installPrompt.classList.add("d-none");
+        }
+      });
+    }
+
+    window.addEventListener("appinstalled", function () {
+      if (installPrompt) {
+        installPrompt.classList.add("d-none");
+      }
+      deferredInstallPrompt = null;
     });
 
     function showError(msg) {

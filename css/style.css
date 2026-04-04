@@ -179,6 +179,14 @@ body {
   background: rgba(0, 229, 255, 0.05);
 }
 
+.install-prompt {
+  margin-top: 0.5rem;
+}
+
+.install-prompt .hint-text {
+  margin-bottom: 0.85rem;
+}
+
 /* ---------- Headline ---------- */
 .headline {
   font-size: clamp(2rem, 5vw, 3.1rem);
