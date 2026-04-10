@@ -1,6 +1,6 @@
 {
-  "name": "NeuralPrompt AI",
-  "short_name": "NeuralPrompt",
+  "name": "EduQuest AI",
+  "short_name": "EduQuest",
   "description": "Ask anything — powered by Llama via Hugging Face",
   "start_url": "./index.html",
   "scope": "./",
