@@ -1,10 +1,10 @@
 /* ---------------------------------------------------------------
-   NeuralPrompt — service-worker.js
+   eduquest — service-worker.js
    Safe cache-first strategy. No "Response body already used" bug.
    Relative paths so it works on any GitHub Pages subdirectory.
    --------------------------------------------------------------- */
 
-const CACHE_NAME = "neuralprompt-v3";
+const CACHE_NAME = "eduquest-v3";
 
 const PRECACHE_URLS = [
   "./",
